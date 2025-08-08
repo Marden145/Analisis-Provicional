@@ -1,0 +1,323 @@
+﻿@page
+@model Web.Pages.Productos.IndexModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+<head>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/tienda.css" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container justify-content-center">
+            <a class="navbar-brand fw-bold mx-lg-3" href="#">MiEcommerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar navbar-expand-lg category-navbar shadow-sm sticky-top category-bar">
+        <div class="container">
+           
+            <div class="collapse navbar-collapse" id="categoryNav">
+                <ul class="navbar-nav flex-wrap">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="catTecnologia" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-laptop me-1 text-white"></i> Tecnología
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="catTecnologia">
+                            <li><a class="dropdown-item " href="#">Laptops</a></li>
+                            <li><a class="dropdown-item " href="#">Smartphones</a></li>
+                            <li><a class="dropdown-item " href="#">Accesorios</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="catRopa" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-tshirt me-1 text-white"></i> Ropa
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="catRopa">
+                            <li><a class="dropdown-item" href="#">Hombre</a></li>
+                            <li><a class="dropdown-item" href="#">Mujer</a></li>
+                            <li><a class="dropdown-item" href="#">Niños</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="catHogar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-couch me-1 text-white"></i> Hogar
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="catHogar">
+                            <li><a class="dropdown-item" href="#">Muebles</a></li>
+                            <li><a class="dropdown-item" href="#">Decoración</a></li>
+                            <li><a class="dropdown-item" href="#">Electrodomésticos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="catDeportes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-basketball-ball me-1 text-white"></i> Deportes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="catDeportes">
+                            <li><a class="dropdown-item" href="#">Fitness</a></li>
+                            <li><a class="dropdown-item" href="#">Ciclismo</a></li>
+                            <li><a class="dropdown-item" href="#">Natación</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex me-3 search-form" role="search">
+                    <input class="form-control me-2 search-input" type="search" placeholder="Buscar productos..." aria-label="Buscar productos" />
+                    <button class="btn btn-outline-light search-btn" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <a href="#" class="btn btn-warning rounded-circle"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container-fluid my-4 top-carusel">
+        <div class="row g-3 top-carusel">
+
+            <div class="col-md-6 ">
+                <div id="carousel1" class="carousel slide modern-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active position-relative">
+                            <img src="https://marshallwebb.com/wp-content/uploads/2024/08/ecommerce1.jpg" class="d-block w-100" alt="">
+                            <div class="overlay"></div>
+                            <div class="carousel-caption text-start text-white">
+                                <h4 class="fw-bold">¡Bienvenido!</h4>
+                                <p>Explorá las mejores ofertas del ecommerce</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item position-relative">
+                            <img src="https://marshallwebb.com/wp-content/uploads/2024/08/ecommerce1.jpg" class="d-block w-100" alt="">
+                            <div class="overlay"></div>
+                            <div class="carousel-caption text-start text-white">
+                                <h4 class="fw-bold">Ofertas semanales</h4>
+                                <p>Grandes descuentos en productos seleccionados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 ">
+                <div id="carousel2" class="carousel slide modern-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active position-relative">
+                            <img src="https://marshallwebb.com/wp-content/uploads/2024/08/ecommerce1.jpg" class="d-block w-100" alt="">
+                            <div class="overlay"></div>
+                            <div class="carousel-caption text-start text-white">
+                                <h4 class="fw-bold">Envíos gratis</h4>
+                                <p>En compras superiores a ₡25.000</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item position-relative">
+                            <img src="https://marshallwebb.com/wp-content/uploads/2024/08/ecommerce1.jpg" class="d-block w-100" alt="">
+                            <div class="overlay"></div>
+                            <div class="carousel-caption text-start text-white">
+                                <h4 class="fw-bold">Nuevo stock</h4>
+                                <p>Lo último en tecnología para vos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid pb-5">
+        <h3 class="fw-bold mb-4 text-center">Nuestros Productos</h3>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 1')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 1</h6>
+                        <p class="fw-bold text-primary mb-4">$15.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 2')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 2</h6>
+                        <p class="fw-bold text-primary mb-4">$25.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 3')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 3</h6>
+                        <p class="fw-bold text-primary mb-4">$30.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 4')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 4</h6>
+                        <p class="fw-bold text-primary mb-4">$12.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btnChat" class="position-fixed bottom-0 end-0 m-4" style="z-index: 1050;">
+        <button class="btn btn-primary rounded-circle shadow-lg" style="width: 60px; height: 60px;">
+            <i class="bi bi-chat-dots fs-3 text-white"></i>
+        </button>
+    </div>
+
+    <div id="chatBox" class="position-fixed bottom-0 end-0 m-4 bg-white rounded shadow" style="width: 350px; height: 450px; display: none; z-index: 1051;">
+
+
+        <div class="bg-primary text-white p-3 d-flex justify-content-between align-items-center rounded-top">
+            <strong>Chat Sumicom</strong>
+            <button class="btn btn-sm btn-light text-primary rounded-circle" onclick="cerrarChat()">&times;</button>
+        </div>
+
+
+        <div id="chatMessages" class="p-3 flex-grow-1 overflow-auto" style="height: 230px;">
+            <div class="bg-light p-3 rounded shadow-sm mb-3">
+                <p class="mb-1">Hola 👋</p>
+                <small>¿En qué podemos ayudarte?</small>
+            </div>
+
+        </div>
+
+
+        <div class="p-3 border-top d-flex gap-2">
+            <input id="chatInput" type="text" class="form-control" placeholder="Escribe tu mensaje..." aria-label="Mensaje">
+            <button id="sendBtn" class="btn btn-primary d-flex align-items-center">
+                Enviar <i class="bi bi-send-fill ms-2"></i>
+            </button>
+        </div>
+
+    </div>
+
+
+
+    <nav aria-label="Paginacion de productos">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item">
+                <a class="page-link" href="#">Anterior</a>
+            </li>
+
+
+
+
+
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">4</a>
+            </li>
+                            
+
+            <li class="page-item disabled">
+                <span class="page-link">Siguiente</span>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <footer class="footer py-4 mt-5 ">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>MiEcommerce</h5>
+                    <p>Ofrecemos la mejor selección de productos con envíos a todo el país.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Síguenos</h5>
+                    <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-3 border-top pt-3">
+                &copy; @DateTime.Now.Year MiEcommerce - Todos los derechos reservados
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+@section Scripts {
+    <script>
+        const btnChat = document.getElementById("btnChat");
+        const chatBox = document.getElementById("chatBox");
+
+        btnChat.addEventListener("click", () => {
+            chatBox.style.display = "block";
+            btnChat.style.display = "none";
+        });
+
+        function cerrarChat() {
+            chatBox.style.display = "none";
+            btnChat.style.display = "block";
+        }
+    </script>
+    <script>
+                const sidebar = document.getElementById('sidebar');
+        const toggleSidebarBtn = document.getElementById('toggleSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        toggleSidebarBtn.addEventListener('click', () => {
+          sidebar.classList.add('show');
+        });
+
+        closeSidebarBtn.addEventListener('click', () => {
+          sidebar.classList.remove('show');
+        });
+    </script>
+
+}

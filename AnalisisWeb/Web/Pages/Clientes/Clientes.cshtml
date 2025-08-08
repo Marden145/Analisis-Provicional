@@ -1,0 +1,309 @@
+﻿@page
+@model Web.Pages.Clientes.ClientesModel
+@{
+}
+<head>
+    <!-- Google Fonts para mejor tipografía -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1.page-title {
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #212529;
+            text-align: center;
+        }
+        .btn-primary {
+            box-shadow: 0 4px 8px rgb(0 123 255 / 0.3);
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        /* Modal personalizado */
+        .modal-content {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgb(0 0 0 / 0.1);
+        }
+        .modal-header {
+            border-bottom: 1px solid #dee2e6;
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .modal-title {
+            font-weight: 700;
+        }
+        .modal-body {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 25px 30px;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1.5px solid #ced4da;
+            transition: border-color 0.3s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 6px #007bffaa;
+        }
+       
+        
+        table.dataTable thead th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+            
+            
+            padding: 12px 18px;
+        }
+        table.dataTable tbody tr {
+            background-color: white;
+            box-shadow: 0 2px 6px rgb(0 0 0 / 0.08);
+            border-radius: 12px;
+            transition: background-color 0.25s ease;
+        }
+        table.dataTable tbody tr:hover {
+            background-color: #e9f2ff;
+        }
+        table.dataTable tbody td {
+            
+            padding: 12px 15px;
+            border: none !important;
+            color: #333;
+        }
+        
+        .btn-sm {
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 6px 12px;
+        }
+        .btn-primary.btn-sm {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn-primary.btn-sm:hover {
+            background-color: #00408d;
+            border-color: #00408d;
+        }
+        .btn-danger.btn-sm {
+            background-color: #d63333;
+            border-color: #d63333;
+        }
+        .btn-danger.btn-sm:hover {
+            background-color: #a52828;
+            border-color: #a52828;
+        }
+        
+        .btn i {
+            margin-right: 6px;
+            font-size: 1.1em;
+        }
+        
+        .modal-footer {
+            border-top: 1px solid #dee2e6;
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="page-title">Gestión de Clientes</h1>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarClienteModal">
+            <i class="bi bi-plus-lg"></i> Agregar cliente
+        </button>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="agregarClienteModal" tabindex="-1" aria-labelledby="agregarClienteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <form id="formAgregarCliente" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="agregarClienteModalLabel">Agregar Cliente</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="tipo">Tipo</label>
+                            <select class="form-select" id="tipo" name="tipo" required>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <option value="Persona Física">Persona Física</option>
+                                <option value="Persona Jurídica">Persona Jurídica</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione un tipo válido.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="nombre">Nombre / Razón Social</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="identificacion">Identificación</label>
+                            <input type="text" class="form-control" id="identificacion" name="identificacion" required>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="telefono">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[\d\s\-()+]+">
+                            <div class="invalid-feedback">Ingrese un teléfono válido.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="correo">Correo</label>
+                            <input type="email" class="form-control" id="correo" name="correo" required>
+                            <div class="invalid-feedback">Ingrese un correo válido.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="direccion">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                            <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="representante">Representante Legal</label>
+                            <input type="text" class="form-control" id="representante" name="representante" placeholder="Opcional">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="fecha">Fecha de Registro</label>
+                            <input type="date" class="form-control" id="fecha" name="fecha" required>
+                            <div class="invalid-feedback">Seleccione una fecha válida.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="estado">Estado</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                <option value="" disabled selected>Seleccione estado</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione un estado válido.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-lg"></i> Guardar
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x-lg"></i> Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de clientes -->
+    <table id="clientesTable" class="display table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Nombre / Razón Social</th>
+                <th>Identificación</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+                <th>Representante Legal</th>
+                <th>Fecha Registro</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Persona Física</td>
+                <td>Juan Pérez</td>
+                <td>1-1234-5678</td>
+                <td>8888-1234</td>
+                <td>juanperez@email.com</td>
+                <td>San José, Costa Rica</td>
+                <td>-</td>
+                <td>01/08/2025</td>
+                <td>Activo</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash-fill"></i> Eliminar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Persona Jurídica</td>
+                <td>Comercial XYZ S.A.</td>
+                <td>3-101-456789</td>
+                <td>2299-4455</td>
+                <td>info@xyz.com</td>
+                <td>Heredia, Costa Rica</td>
+                <td>Ana Gómez</td>
+                <td>10/07/2025</td>
+                <td>Activo</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash-fill"></i> Eliminar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Persona Física</td>
+                <td>María Rodríguez</td>
+                <td>1-5678-1234</td>
+                <td>8700-0000</td>
+                <td>maria.rod@email.com</td>
+                <td>Cartago, Costa Rica</td>
+                <td>-</td>
+                <td>05/07/2025</td>
+                <td>Inactivo</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="bi bi-pencil-fill"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash-fill"></i> Eliminar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    @section Scripts {
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#clientesTable').DataTable({
+                    language: {
+                        url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+                    }
+                });
+
+                
+            });
+        </script>
+    }
+</body>
