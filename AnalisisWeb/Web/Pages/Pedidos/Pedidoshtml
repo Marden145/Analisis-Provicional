@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis Pedidos</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fdf9f8;
+        margin: 0;
+        padding: 0;
+    }
+    table {
+        width: 90%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    th {
+        background-color: #fdf3f0;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    tr {
+        border-bottom: 1px solid #f0e6e4;
+    }
+    .status {
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        border: none;
+    }
+    .Shipped { background-color: #f5e1df; color: #a14d4a; }
+    .Delivered { background-color: #d9f2e6; color: #3c8055; }
+    .Cancelled { background-color: #fce2e2; color: #a33a3a; }
+    a {
+        color: #b05b56;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover {
+        color: black;
+    }
+</style>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="orderTable">
+        <tr>
+            <td>#1001</td>
+            <td>10 Ago 2025</td>
+            <td>$1,200.00</td>
+            <td><button class="status Shipped" onclick="toggleStatus(this)">Shipped</button></td>
+            <td><a onclick="viewDetails('#1001')">View Details</a></td>
+        </tr>
+        <tr>
+            <td>#1002</td>
+            <td>08 Ago 2025</td>
+            <td>$900.00</td>
+            <td><button class="status Delivered" onclick="toggleStatus(this)">Delivered</button></td>
+            <td><a onclick="viewDetails('#1002')">View Details</a></td>
+        </tr>
+        <tr>
+            <td>#1003</td>
+            <td>05 Ago 2025</td>
+            <td>$450.00</td>
+            <td><button class="status Cancelled" onclick="toggleStatus(this)">Cancelled</button></td>
+            <td><a onclick="viewDetails('#1003')">View Details</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div id="detailsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Detalles del Pedido</h2>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+function toggleStatus(button) {
+    const current = button.textContent.trim();
+    if (current === "Shipped") {
+        button.textContent = "Delivered";
+        button.className = "status Delivered";
+    } else if (current === "Delivered") {
+        button.textContent = "Cancelled";
+        button.className = "status Cancelled";
+    } else {
+        button.textContent = "Shipped";
+        button.className = "status Shipped";
+    }
+}
+
+function viewDetails(orderId) {
+    let details = "";
+    if (orderId === "#1001") {
+        details = "<ul><li>Laptop Lenovo ThinkPad</li><li>Mouse Logitech MX Master 3</li></ul>";
+    } else if (orderId === "#1002") {
+        details = "<ul><li>Monitor Dell 24''</li><li>Teclado Mecánico Keychron K2</li></ul>";
+    } else if (orderId === "#1003") {
+        details = "<ul><li>Disco SSD Samsung 1TB</li><li>Base refrigerante para laptop</li></ul>";
+    }
+    document.getElementById("modalBody").innerHTML = "<p><b>Pedido:</b> " + orderId + "</p>" + details;
+    document.getElementById("detailsModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("detailsModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("detailsModal")) {
+        closeModal();
+    }
+}
+</script>
+
+</body>
+</html>
