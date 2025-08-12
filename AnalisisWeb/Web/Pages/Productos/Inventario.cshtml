@@ -11,7 +11,7 @@
 
 <body>
     <div class="modal fade" id="modalFormulario" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content" id="contenidoModal">
                 <form id="formProducto" method="post">
                     <div class="modal-header">
@@ -75,15 +75,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <div class="modal fade" id="modalFormularioEditar" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content" id="contenidoModalEditar">
 
 
@@ -97,29 +97,29 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label">Nombre</label>
-                                <input  class="form-control input-squarespace" />
+                                <input  class="form-control input-squarespace" placeholder="nombre"/>
                                
                             </div>
                             <div class="col-md-6">
                                 <label  class="form-label">Marca</label>
-                                <input  class="form-control input-squarespace" />
+                                <input  class="form-control input-squarespace" placeholder="marca"/>
                                 
                             </div>
 
                             <div class="col-md-4">
                                 <label  class="form-label">Precio</label>
-                                <input  class="form-control input-squarespace" />
+                                <input  class="form-control input-squarespace" placeholder="precio"/>
                                 
                             </div>
                             <div class="col-md-8">
                                 <label  class="form-label">Descripción</label>
-                                <input  class="form-control input-squarespace" />
+                                <input  class="form-control input-squarespace" placeholder="descripcion" />
                                 
                             </div>
 
                             <div class="col-md-4">
                                 <label  class="form-label">Stock</label>
-                                <input " class="form-control input-squarespace" />
+                                <input " class="form-control input-squarespace" placeholder="stock" />
                                 
                             </div>
 
@@ -139,22 +139,14 @@
 
                             <div class="col-md-4">
                                 <label  class="form-label">Categoría</label>
-                                <input  class="form-control input-squarespace" />
+                                <input  class="form-control input-squarespace" placeholder="categoria"/>
                                 
                             </div>
-
-                            <div class="col-md-4">
-                                <label  class="form-label">Estado</label>
-                                <input  class="form-control input-squarespace" />
-                               
-                            </div>
-
-                           
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -169,18 +161,6 @@
                     data-bs-target="#modalFormulario">
                 Crear producto
             </button>
-
-            <form class="d-flex align-items-center position-relative" style="max-width: 350px;">
-                <input type="text"
-                       class="form-control rounded-pill ps-4 pe-5"
-                       placeholder="Buscar productos..."
-                       aria-label="Buscar productos" />
-                <button type="submit"
-                        class="btn btn-primary position-absolute end-0 me-1 top-50 translate-middle-y rounded-pill px-3 shadow-sm"
-                        aria-label="Buscar">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
         </div>
        
 
@@ -188,7 +168,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
             <div class="col">
                 <div class="card h-100 shadow-sm rounded-4 overflow-hidden position-relative">
-                    <img src="https://via.placeholder.com/300x200"
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg"
                          alt="Imagen de Producto 1"
                          class="card-img-top producto-img"
                          style="cursor:pointer;" />
@@ -218,7 +198,7 @@
 
             <div class="col">
                 <div class="card h-100 shadow-sm rounded-4 overflow-hidden position-relative">
-                    <img src="https://via.placeholder.com/300x200"
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg"
                          alt="Imagen de Producto 2"
                          class="card-img-top producto-img"
                          style="cursor:pointer;" />
@@ -243,7 +223,7 @@
 
             <div class="col">
                 <div class="card h-100 shadow-sm rounded-4 overflow-hidden position-relative">
-                    <img src="https://via.placeholder.com/300x200"
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg"
                          alt="Imagen de Producto 3"
                          class="card-img-top producto-img"
                          style="cursor:pointer;" />
@@ -273,7 +253,7 @@
 
             <div class="col">
                 <div class="card h-100 shadow-sm rounded-4 overflow-hidden position-relative">
-                    <img src="https://via.placeholder.com/300x200"
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg"
                          alt="Imagen de Producto 4"
                          class="card-img-top producto-img"
                          style="cursor:pointer;" />

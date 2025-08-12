@@ -2,23 +2,13 @@
 @model Web.Pages.Productos.IndexModel
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 
-<head>
-
+@section CSS{
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
     <link href="~/css/tienda.css" rel="stylesheet" />
-</head>
-
-<body class="bg-light">
-
-    
-
-
-
-
+}
 
     <div class="container-fluid my-4 top-carusel">
         <div class="row g-3 top-carusel">
-
             <div class="col-md-6 ">
                 <div id="carousel1" class="carousel slide modern-carousel" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
@@ -72,11 +62,11 @@
 
 
     <div class="container-fluid pb-5">
-        <h3 class="fw-bold mb-4 text-center">Nuestros Productos</h3>
+        <h3 class="fw-bold mb-4 text-start">Laptops</h3>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4">
             <div class="col">
                 <div class="card h-100 text-center shadow-sm border-0">
-                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 1')">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 1')">
                     <div class="card-body d-flex flex-column">
                         <h6 class="card-title mb-1">Producto 1</h6>
                         <p class="fw-bold text-primary mb-4">$15.00</p>
@@ -86,7 +76,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center shadow-sm border-0">
-                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 2')">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 2')">
                     <div class="card-body d-flex flex-column">
                         <h6 class="card-title mb-1">Producto 2</h6>
                         <p class="fw-bold text-primary mb-4">$25.00</p>
@@ -96,7 +86,7 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center shadow-sm border-0">
-                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 3')">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 3')">
                     <div class="card-body d-flex flex-column">
                         <h6 class="card-title mb-1">Producto 3</h6>
                         <p class="fw-bold text-primary mb-4">$30.00</p>
@@ -106,7 +96,50 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center shadow-sm border-0">
-                    <img src="https://via.placeholder.com/200x150" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 4')">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 4')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 4</h6>
+                        <p class="fw-bold text-primary mb-4">$12.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="fw-bold mb-4 text-start">Celulares</h3>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 1')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 1</h6>
+                        <p class="fw-bold text-primary mb-4">$15.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 2')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 2</h6>
+                        <p class="fw-bold text-primary mb-4">$25.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 3')">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title mb-1">Producto 3</h6>
+                        <p class="fw-bold text-primary mb-4">$30.00</p>
+                        <button class="btn btn-outline-dark mt-auto"><i class="fas fa-cart-plus"></i> Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm border-0">
+                    <img src="https://www.intelec.co.cr/wp-content/uploads/2025/06/82VG00R2US-768x768.jpg" alt="Producto" style="cursor:pointer;" onclick="alert('Ir a detalle producto 4')">
                     <div class="card-body d-flex flex-column">
                         <h6 class="card-title mb-1">Producto 4</h6>
                         <p class="fw-bold text-primary mb-4">$12.00</p>
@@ -184,37 +217,13 @@
     </nav>
 
 
-    <footer class="footer py-4 mt-5 ">
-        <div class="container text-center text-md-start">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5>MiEcommerce</h5>
-                    <p>Ofrecemos la mejor selección de productos con envíos a todo el país.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Enlaces</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Categorías</a></li>
-                        <li><a href="#">Ofertas</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Síguenos</h5>
-                    <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
-                    <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
-                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
-                </div>
-            </div>
-            <div class="text-center mt-3 border-top pt-3">
-                &copy; @DateTime.Now.Year MiEcommerce - Todos los derechos reservados
-            </div>
-        </div>
-    </footer>
+    
 
 
-</body>
+
+
+
+
 
 @section Scripts {
     <script>
