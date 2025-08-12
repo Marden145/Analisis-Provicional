@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web.Pages.Planilla
+namespace Web.Pages.Administracion
 {
-    public class PlanillaModel : PageModel
+    public class AdministracionModel : PageModel
     {
         public void OnGet()
         {
