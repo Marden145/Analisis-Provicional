@@ -22,6 +22,7 @@
             <div class="container-fluid">
 
                 <div class="collapse navbar-collapse" id="categoryNav">
+                    <a class="navbar-brand" asp-page="..Productos/Index">Ecomerce</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="catTecnologia" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,40 +93,23 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="app-layout">
+        <main role="main" class="pb-5">
             @RenderBody()
         </main>
     </div>
 
-   
-    
-    <footer class="text-muted" style="background: #222; color: #ccc;">
-        <div class="container text-center text-md-start">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5 class="text-white">MiEcommerce</h5>
-                    <p class="text-white">Ofrecemos la mejor selección de productos con envíos a todo el país.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Enlaces</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Categorías</a></li>
-                        <li><a href="#">Ofertas</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Síguenos</h5>
-                    <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
-                    <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
-                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
-                </div>
-            </div>
-            <div class="text-center mt-3 border-top pt-3">
-                &copy; @DateTime.Now.Year MiEcommerce - Todos los derechos reservados
-            </div>
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - CRM - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <a asp-area="" asp-page="/Privacy" class="text-decoration-none me-4">
+                <i class="bi bi-instagram" style="font-size: 1.2rem;"></i> Instagram
+            </a>
+            <a asp-area="" asp-page="/Privacy" class="text-decoration-none me-4">
+                <i class="bi bi-facebook" style="font-size: 1.2rem;"></i> Facebook
+            </a>
         </div>
     </footer>
 </body>
