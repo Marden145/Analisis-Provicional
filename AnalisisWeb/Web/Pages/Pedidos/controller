@@ -1,0 +1,48 @@
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TuProyecto.Controllers
+{
+    public class PedidosController : Controller
+    {
+        private static List<Order> pedidos = new List<Order>
+        {
+            new Order { OrderId = "P001", Date = DateTime.Now.AddDays(-3), Total = 150.50m, Status = "Shipped", Products = new List<string>{ "Laptop", "Mouse" } },
+            new Order { OrderId = "P002", Date = DateTime.Now.AddDays(-1), Total = 80m, Status = "Delivered", Products = new List<string>{ "Teclado", "Monitor" } }
+        };
+
+        public IActionResult Index(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var pedido = pedidos.FirstOrDefault(p => p.OrderId == id);
+                return View("Detalles", pedido);
+            }
+            return View(pedidos);
+        }
+
+        [HttpPost]
+        public IActionResult CambiarEstado(string orderId)
+        {
+            var pedido = pedidos.FirstOrDefault(p => p.OrderId == orderId);
+            if (pedido != null)
+            {
+                if (pedido.Status == "Shipped") pedido.Status = "Delivered";
+                else if (pedido.Status == "Delivered") pedido.Status = "Cancelled";
+                else pedido.Status = "Shipped";
+            }
+            return RedirectToAction("Index");
+        }
+
+        public class Order
+        {
+            public string OrderId { get; set; }
+            public DateTime Date { get; set; }
+            public decimal Total { get; set; }
+            public string Status { get; set; }
+            public List<string> Products { get; set; }
+        }
+    }
+}

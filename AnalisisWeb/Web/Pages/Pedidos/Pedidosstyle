@@ -1,0 +1,58 @@
+       @model TuProyecto.Controllers.PedidosController.Order
+
+@{
+    ViewData["Title"] = "Detalles del Pedido";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 20px;
+    }
+    .detalle-card {
+        background-color: white;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #007bff;
+        text-align: center;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    a {
+        display: inline-block;
+        margin-top: 15px;
+        background-color: #007bff;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="detalle-card">
+    <h1>Detalles del Pedido @Model.OrderId</h1>
+    <p><b>Fecha:</b> @Model.Date.ToShortDateString()</p>
+    <p><b>Total:</b> @Model.Total.ToString("C")</p>
+    <p><b>Estado:</b> @Model.Status</p>
+
+    <h3>Productos</h3>
+    <ul>
+    @foreach (var prod in Model.Products)
+    {
+        <li>@prod</li>
+    }
+    </ul>
+
+    <a asp-action="Index">Volver a la lista</a>
+</div>
