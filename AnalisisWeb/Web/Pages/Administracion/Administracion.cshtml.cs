@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web.Pages.Categorias
+namespace Web.Pages.Administracion
 {
-    public class CategoriasModel : PageModel
+    public class AdministracionModel : PageModel
     {
         public void OnGet()
         {

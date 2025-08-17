@@ -31,7 +31,11 @@ table.dataTable tbody tr:hover {
 }
 
 
-
+.main-content-container .table-responsive {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .modal-body p {
